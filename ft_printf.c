@@ -6,32 +6,38 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/14 18:12:55 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:40:53 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_format(va_list args, const char format) {
-	int	len;
-
-	len = 0;
+static int	ft_format(va_list args, const char format)
+{
 	if (format == 'c')
-		len += ft_print_char(va_arg(args, int));
+		return (ft_print_char(va_arg(args, int)));
 	else if (format == 's')
-		len += ft_print_str(va_arg(args, char *));
+		return (ft_print_str(va_arg(args, char *)));
 	else if (format == 'p')
-		len += ft_print_ptr(va_arg(args, size_t));
+		return (ft_print_ptr(va_arg(args, size_t)));
+	else if (format == 'd' || format == 'i')
+		return (ft_print_nbr(va_arg(args, int)));
+	else if (format == 'u')
+		return (ft_print_unbr(va_arg(args, unsigned int)));
+	else if (format == 'x')
+		return (ft_print_hex(va_arg(args, unsigned int), "0123456789abcdef"));
+	else if (format == 'X')
+		return (ft_print_hex(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	else
-		len += ft_print_char(format);
-	return (len);
+		return (ft_print_char(format));
+	return (0);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int	len;
-	int	i;
+	va_list	args;
+	int		len;
+	int		i;
 
 	i = 0;
 	len = 0;

@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/14 18:01:39 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:39:18 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ int	ft_printf(const char *format, ...);
 int	ft_print_char(char c);
 int	ft_print_str(char *str);
 int	ft_print_ptr(size_t ptr);
+int	ft_print_nbr(int n);
+int	ft_print_unbr(unsigned int n);
+int	ft_print_hex(unsigned int n, const char *base);
 
 #endif

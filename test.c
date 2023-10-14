@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:55:27 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/14 19:01:15 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:38:05 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 void	test(int (*print)(const char *str, ...))
 {
-	char a;
+	char	a;
 
 	a = 42;
-	print("char: %c%c%c%c%c%c%c%c%c\n", "aWRs"[1], 'e', 0154, 0x63, 'o', 109, 101, '~', 0);
+	print("char: %c%c%c%c%c%c%c%c%c\n", "aWRs"[1], 'e', 0154, 0x63, 'o', 109,
+		101, '~', 0);
 	print("string: %s %s\n", &"this is a string"[4], NULL);
 	print("pointer: %p %p\n", NULL, &a);
+	print("digit: %d %d %d\n", 42, 0x42, 0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2 && ft_atoi(argv[1]) == 2)
 	{

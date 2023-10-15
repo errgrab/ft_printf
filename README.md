@@ -17,7 +17,6 @@ Feature | Status
 **%d: Print a Decimal Number** | ✅
 **%i: Print an Integer in Base 10** | ✅
 **%u: Print an Unsigned Decimal Number** | ✅
-✅
 **%x: Print a Number in Hexadecimal (Lowercase)** | ✅
 **%X: Print a Number in Hexadecimal (Uppercase)** | ✅
 **%%: Print a Percent Sign** | ✅

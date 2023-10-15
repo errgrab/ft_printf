@@ -6,7 +6,7 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/14 20:40:53 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/15 13:15:36 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static int	ft_format(va_list args, const char format)
 	else if (format == 'p')
 		return (ft_print_ptr(va_arg(args, size_t)));
 	else if (format == 'd' || format == 'i')
-		return (ft_print_nbr(va_arg(args, int)));
+		return (ft_print_base(va_arg(args, int), DECIMAL));
 	else if (format == 'u')
-		return (ft_print_unbr(va_arg(args, unsigned int)));
+		return (ft_print_ubase(va_arg(args, unsigned int), DECIMAL));
 	else if (format == 'x')
-		return (ft_print_hex(va_arg(args, unsigned int), "0123456789abcdef"));
+		return (ft_print_ubase(va_arg(args, unsigned int), HEX_LOWER));
 	else if (format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), "0123456789ABCDEF"));
+		return (ft_print_ubase(va_arg(args, unsigned int), HEX_UPPER));
 	else
 		return (ft_print_char(format));
 	return (0);

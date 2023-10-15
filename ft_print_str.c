@@ -6,7 +6,7 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:26:58 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/14 18:19:58 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/15 13:16:19 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	ft_print_str(char *str)
 	if (!str)
 		return (ft_print_str("(null)"));
 	len = ft_strlen(str);
-	ft_putstr_fd(str, 1);
+	write(1, str, len);
 	return (len);
 }

@@ -6,32 +6,23 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/16 11:02:04 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:40:27 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_format(va_list args, char const *format)
+static int	ft_format(va_list arg, char const format)
 {
-	while
-	if (format == 'c')
-		return (ft_printchr(va_arg(args, int)));
-	else if (format == 's')
-		return (ft_printstr(va_arg(args, char *)));
-	else if (format == 'p')
-		return (ft_printptr(va_arg(args, size_t)));
-	else if (format == 'd' || format == 'i')
-		return (ft_print_base(va_arg(args, int), DECIMAL));
-	else if (format == 'u')
-		return (ft_print_sbase(va_arg(args, unsigned int), DECIMAL));
-	else if (format == 'x')
-		return (ft_print_sbase(va_arg(args, unsigned int), HEX_LOWER));
-	else if (format == 'X')
-		return (ft_print_sbase(va_arg(args, unsigned int), HEX_UPPER));
-	else
-		return (ft_printchr(format));
-	return (0);
+	t_fun	*convs_fun;
+
+	convs_fun = (t_fun[]){
+		ft_printchr, ft_printstr, ft_printptr, ft_printdig, ft_printdig,
+		ft_printuns, ft_printhexl, ft_printhexu, ft_printdef
+	};
+	if (!ft_strchr(CONVS, format))
+		return (write(1, &format, 1));
+	return (convs_fun[ft_strchr(CONVS, format) - CONVS](arg));
 }
 
 int	ft_printf(const char *format, ...)
@@ -46,9 +37,9 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-			len += ft_format(args, &format[++i]);
+			len += ft_format(args, format[++i]);
 		else
-			len += ft_printchr(format[i]);
+			len += write(1, &format[i], 1);
 		i++;
 	}
 	va_end(args);

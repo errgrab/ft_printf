@@ -6,11 +6,11 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2023/10/12 20:23:46 by ecarvalh         ###   ########.fr        #
+#    Updated: 2023/10/16 11:44:00 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(wildcard ./*.c)
+SRCS	= $(wildcard ./ft_*.c)
 OBJS	= $(SRCS:.c=.o)
 LIBFT	= libft
 CFLAGS	= -Wall -Wextra -Werror -I.

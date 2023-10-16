@@ -6,19 +6,18 @@
 /*   By: ecarvalh <ecarvalh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:31:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/10/15 15:31:32 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:47:40 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(char c)
+int	ft_printchr(char chr)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	return (write(1, &chr, 1));
 }
 
-int	ft_print_str(char *str)
+int	ft_printstr(char *str)
 {
 	int	len;
 
@@ -29,7 +28,7 @@ int	ft_print_str(char *str)
 	return (len);
 }
 
-int	ft_print_ptr(size_t ptr)
+int	ft_printptr(size_t ptr)
 {
 	int	len;
 

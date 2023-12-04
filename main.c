@@ -6,7 +6,7 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:20:59 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/11/13 13:03:42 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:10:13 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	printf("x%5sx\n", "Hello World");
-	ft_printf("x%5sx\n", "Hello World");
+	printf("%-5.5%%s\n", "Hello World");
+//	ft_printf("x%5sx\n", "Hello World");
 	return (0);
 }

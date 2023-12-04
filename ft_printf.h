@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/11/06 15:45:26 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:18:16 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <unistd.h>
 
 /* Conversions and flags. */
-# define CONVS "cspdiuxX"
-# define CONVS_LEN 9
-# define FLAGS "-0.# +"
+# define FLAGS "-0# +"
+# define CONVS "cspdiuxX%"
+# define FLAGS_LEN 5
+# define CONVS_LEN 10
 
 /* Bases used */
 # define SDECIMAL  "-0123456789"
@@ -31,18 +32,24 @@
 int	ft_printf(const char *format, ...);
 
 /* The BASE for everything */
-int	ft_print_base(int fd, size_t n, const char *base);
+int	ft_based(int fd, size_t n, const char *base);
 
 /* Utils */
-int	ft_printchr(va_list arg);
-int	ft_printstr(va_list arg);
-int	ft_printptr(va_list arg);
-int	ft_printdig(va_list arg);
-int	ft_printuns(va_list arg);
-int	ft_printhexl(va_list arg);
-int	ft_printhexu(va_list arg);
+int	ft_chr(va_list arg);
+int	ft_str(va_list arg);
+int	ft_ptr(va_list arg);
+int	ft_dig(va_list arg);
+int	ft_uns(va_list arg);
+int	ft_hxl(va_list arg);
+int	ft_hxu(va_list arg);
+int	ft_prc(va_list arg);
 
 /* FUN */
 typedef int	(*t_fun)(va_list);
+typedef struct s_flag {
+	char	flags;
+	int		width;
+	int		precision;
+}	t_flag;
 
 #endif

@@ -6,38 +6,53 @@
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/11/13 13:15:19 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:30:01 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print_formatted(va_list arg, char const format, char *flags)
+static char	*ft_strchr(char *str, int c)
 {
-	t_fun	*convs_fun;
-	char	*convs;
-	int		convs_ind;
+	int i;
 
-	(void)flags;
-	convs = CONVS;
-	convs_ind = 0;
-	convs_fun = (t_fun[]){
-		ft_printchr, ft_printstr, ft_printptr, ft_printdig, ft_printdig,
-		ft_printuns, ft_printhexl, ft_printhexu 
-	};
-	while (convs[convs_ind] && convs[convs_ind] != format)
-		convs_ind++;
-	if (!convs[convs_ind])
-		return (write(1, &format, 1));
-	return (convs_fun[convs_ind](arg));
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
+	}
+	return (NULL);
 }
 
-static int	ft_format(va_list arg, char const *format)
+static int	ft_formatted(va_list arg, char format, t_flag *flag)
 {
-	int	len;
+	t_fun	*fun;
+	int		convs_ind;
 
-	len = ft_print_formatted(arg, *format, "");
-	return (len);
+	fun = (t_fun[]){
+		ft_chr, ft_str, ft_ptr, ft_dig, ft_dig, ft_uns, ft_hxl, ft_hxu, ft_prc
+	};
+	if (!ft_strchr(CONVS, format))
+		return (write(1, &format, 1));
+	return (fun[ft_strchr(CONVS, format) - CONVS](arg));
+}
+
+static int	ft_eval(va_list arg, char const *format)
+{
+	int		len;
+	int		i;
+	t_flag	flag;
+
+	flag = {0};
+	i = -1;
+	while (format[++i] && ft_strchr(FLAGS, format[i]))
+	{
+		while (++i)
+	}
+
+	len = ft_print_formatted(arg, *format, &flag);
+	return (len + i);
 }
 
 int	ft_printf(const char *format, ...)
@@ -52,7 +67,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-			len += ft_format(args, &format[++i]);
+			len += ft_eval(args, &format[++i]);
 		else
 			len += write(1, &format[i], 1);
 		i++;

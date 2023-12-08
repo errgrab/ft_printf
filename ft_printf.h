@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/04 20:18:16 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:04:05 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_printf(const char *format, ...);
 int	ft_based(int fd, size_t n, const char *base);
 
 /* Utils */
+typedef int	(*t_fun)(va_list);
+
 int	ft_chr(va_list arg);
 int	ft_str(va_list arg);
 int	ft_ptr(va_list arg);
@@ -44,12 +46,14 @@ int	ft_hxl(va_list arg);
 int	ft_hxu(va_list arg);
 int	ft_prc(va_list arg);
 
-/* FUN */
-typedef int	(*t_fun)(va_list);
-typedef struct s_flag {
-	char	flags;
+typedef struct s_print
+{
+	char	format_char;
+	char	flags[FLAGS_LEN];
 	int		width;
 	int		precision;
-}	t_flag;
+	int		printed_len;
+	va_list	arg;
+}			t_print;
 
 #endif

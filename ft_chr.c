@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_funs.c                                    :+:      :+:    :+:   */
+/*   ft_chr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:26:38 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/11/03 15:26:47 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:15:10 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printchr(va_list arg)
+int	ft_chr(va_list arg)
 {
 	char	chr;
 
@@ -20,7 +20,7 @@ int	ft_printchr(va_list arg)
 	return (write(1, &chr, 1));
 }
 
-int	ft_printstr(va_list arg)
+int	ft_str(va_list arg)
 {
 	int		len;
 	char	*str;
@@ -35,7 +35,7 @@ int	ft_printstr(va_list arg)
 	return (len);
 }
 
-int	ft_printptr(va_list arg)
+int	ft_ptr(va_list arg)
 {
 	int		len;
 	size_t	ptr;

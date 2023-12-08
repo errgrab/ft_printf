@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_base.c                                    :+:      :+:    :+:   */
+/*   ft_based.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarvalh <ecarvalh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 13:00:32 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/11/03 15:20:16 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:15:25 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_base(int fd, size_t n, const char *base)
+int	ft_based(int fd, size_t n, const char *base)
 {
 	int		len;
 	size_t	base_len;

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lib_strchr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/14 20:07:01 by anon             ###   ########.fr       */
+/*   Created: 2023/12/13 17:23:21 by anon              #+#    #+#             */
+/*   Updated: 2023/12/13 18:19:46 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+char	*ft_strchr(char *str, int c)
 {
-	va_list	args;
-	int		len;
-	int		i;
+	size_t	i;
 
-	i = 0;
-	len = 0;
-	va_start(args, format);
-	while (format[i])
+	i = (size_t)-1;
+	while (str[++i])
 	{
-		if (format[i] == '%')
-			len += ft_eval(args, format, &i);
-		else
-			len += write(1, &format[i], 1);
-		i++;
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
 	}
-	va_end(args);
-	return (len);
+	return (NULL);
 }

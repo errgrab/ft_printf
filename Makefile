@@ -6,30 +6,35 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2023/11/13 13:08:05 by ecarvalh         ###   ########.fr        #
+#    Updated: 2023/12/14 20:00:21 by anon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(filter-out $(wildcard ./ft_*_bonus.c), $(wildcard ./ft_*.c))
+CC		= clang
+RM		= rm -f
+SRCS	=	$(wildcard lib/ft_*.c) \
+			$(wildcard fun/ft_*.c) \
+			$(wildcard ft_*.c)
 OBJS	= $(SRCS:.c=.o)
-B_SRCS	= $(wildcard ./ft_*_bonus.c)
-B_OBJS	= $(B_SRCS:.c=.o)
 CFLAGS	= -Wall -Wextra -Werror -I.
-NAME	= libftprintf.a
+TARGET	= libftprintf.a
 
-all: $(NAME)
+all: $(TARGET)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(TARGET): $(OBJS)
+	ar rc $(TARGET) $(OBJS)
+
+%.o:  %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(TARGET)
 
 re: fclean all
 
-bonus: $(OBJS)
+bonus: $(TARGET)
 
 .PHONY: all clean fclean re

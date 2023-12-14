@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/08 14:04:05 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/14 20:32:30 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,49 @@
 # define CONVS_LEN 10
 
 /* Bases used */
-# define SDECIMAL  "-0123456789"
-# define DECIMAL   " 0123456789"
-# define HEX_LOWER " 0123456789abcdef"
-# define HEX_UPPER " 0123456789ABCDEF"
+# define SDEC "-0123456789"
+# define UDEC " 0123456789"
+# define LHEX " 0123456789abcdef"
+# define UHEX " 0123456789ABCDEF"
+
+/* Types */
+typedef int	(*t_fun)(va_list);
+typedef struct s_pa {			/* print args   */
+	char	f_chr;				/* format char  */
+	char	flg[FLAGS_LEN + 1];	/* flags        */
+	int		flg_cnt;			/* flags count  */
+	int		wid;				/* width        */
+	int		prc;				/* precision    */
+	int		len;				/* lenght       */
+}	t_pa;
 
 /* (^-^ ) */
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 
-/* The BASE for everything */
-int	ft_based(int fd, size_t n, const char *base);
+/* BASED */
+int		ft_based(size_t n, char *base);
 
-/* Utils */
-typedef int	(*t_fun)(va_list);
+/* Lib */
+int		ft_nbrlen(ssize_t nbr, char *base);
+int		ft_strlen(char *str);
+char	*ft_strchr(char *str, int c);
+int		ft_putstr(char *str);
 
-int	ft_chr(va_list arg);
-int	ft_str(va_list arg);
-int	ft_ptr(va_list arg);
-int	ft_dig(va_list arg);
-int	ft_uns(va_list arg);
-int	ft_hxl(va_list arg);
-int	ft_hxu(va_list arg);
-int	ft_prc(va_list arg);
+/* ConvFun */
+void	ft_chr(va_list args, t_pa *pa); /* char        */
+void	ft_str(va_list args, t_pa *pa); /* string      */
+void	ft_ptr(va_list args, t_pa *pa); /* pointer     */
+void	ft_dig(va_list args, t_pa *pa); /* digit       */
+void	ft_uns(va_list args, t_pa *pa); /* unsigned    */
+void	ft_hxl(va_list args, t_pa *pa); /* hex lower   */
+void	ft_hxu(va_list args, t_pa *pa); /* hex upper   */
+void	ft_def(va_list args, t_pa *pa); /* default (%) */
 
-typedef struct s_print
-{
-	char	format_char;
-	char	flags[FLAGS_LEN];
-	int		width;
-	int		precision;
-	int		printed_len;
-	va_list	arg;
-}			t_print;
+/* Eval */
+int		ft_eval(va_list args, char *str, int *j);
+void	ft_eval_put(t_pa *pa, va_list args);
+void	ft_eval_flg(t_pa *pa, char flag);
+int		ft_eval_wid(t_pa *pa, char *str);
+int		ft_eval_prc(t_pa *pa, char *str);
 
 #endif

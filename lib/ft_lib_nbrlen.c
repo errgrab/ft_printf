@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lib_nbrlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarvalh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 19:40:41 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/14 20:07:01 by anon             ###   ########.fr       */
+/*   Created: 2023/12/13 16:56:55 by anon              #+#    #+#             */
+/*   Updated: 2023/12/13 17:02:15 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_nbrlen(ssize_t nbr, char *base)
 {
-	va_list	args;
+	size_t	n;
 	int		len;
-	int		i;
+	int		base_len;
 
-	i = 0;
-	len = 0;
-	va_start(args, format);
-	while (format[i])
+	len = 1;
+	n = nbr;
+	base_len = ft_strlen(base);
+	if (nbr < 0)
 	{
-		if (format[i] == '%')
-			len += ft_eval(args, format, &i);
-		else
-			len += write(1, &format[i], 1);
-		i++;
+		len++;
+		n = -nbr;
 	}
-	va_end(args);
+	while (n)
+	{
+		n /= base_len;
+		len++;
+	}
 	return (len);
 }

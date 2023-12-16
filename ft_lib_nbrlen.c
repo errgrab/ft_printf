@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_chr.c                                       :+:      :+:    :+:   */
+/*   ft_lib_nbrlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 23:57:58 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 01:28:57 by anon             ###   ########.fr       */
+/*   Created: 2023/12/13 16:56:55 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 23:56:51 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_chr(va_list args, t_pa *pa)
+int	ft_nbrlen(ssize_t nbr, char *base)
 {
+	size_t	n;
 	int		len;
-	char	c;
+	int		base_len;
 
-	c = va_arg(args, int);
 	len = 1;
-	if (pa->wid > len)
+	n = nbr;
+	base_len = ft_strlen(base);
+	if (nbr < 0)
 	{
-		if (ft_strchr(pa->flg, '-'))
-			write(1, &c, 1);
-		while (pa->wid > len)
-			len += write(1, " ", 1);
-		if (!ft_strchr(pa->flg, '-'))
-			write(1, &c, 1);
+		len++;
+		n = -nbr;
 	}
-	pa->len = len;
+	while (n)
+	{
+		n /= base_len;
+		len++;
+	}
+	return (len);
 }

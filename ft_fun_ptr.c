@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib_strlen.c                                    :+:      :+:    :+:   */
+/*   ft_fun_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 17:02:53 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 23:57:14 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 23:59:56 by anon              #+#    #+#             */
+/*   Updated: 2023/12/16 20:29:50 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_strlen(char *str)
+void	ft_ptr(va_list args, t_pa *pa)
 {
-	int	len;
+	int		len;
+	size_t	ptr;
 
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	ptr = va_arg(args, size_t);
+	if (!ptr)
+	{
+		pa->len = write(1, "(nil)", 5);
+		return ;
+	}
+	len = write(1, "0x", 2);
+	len += ft_based(ptr, LHEX);
+	pa->len = len;
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib_strchr.c                                    :+:      :+:    :+:   */
+/*   ft_eval_prc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 17:23:21 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 23:57:07 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 19:45:21 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 19:55:40 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(char *str, int c)
+int	ft_eval_prc(t_pa *pa, const char *str)
 {
-	size_t	i;
+	int	res;
+	int	i;
 
-	i = (size_t)-1;
-	while (str[++i])
-	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
-	}
-	return (NULL);
+	res = 0;
+	i = 0;
+	while (ft_strchr("0123456789", str[++i]))
+		res = (res * 10) + (ft_strchr("0123456789", str[i]) - "0123456789");
+	pa->prc = res;
+	return (i);
 }

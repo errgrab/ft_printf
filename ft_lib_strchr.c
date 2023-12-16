@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_hxu.c                                       :+:      :+:    :+:   */
+/*   ft_lib_strchr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 23:59:51 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 00:08:23 by anon             ###   ########.fr       */
+/*   Created: 2023/12/13 17:23:21 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 23:57:07 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_hxu(va_list args, t_pa *pa)
+char	*ft_strchr(char *str, int c)
 {
-	(void)args;
-	(void)pa;
+	size_t	i;
+
+	i = (size_t)-1;
+	while (str[++i])
+	{
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
+	}
+	return (NULL);
 }

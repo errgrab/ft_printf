@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_eval_prc.c                                      :+:      :+:    :+:   */
+/*   ft_lib_putstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
+/*   By: anon <ecarvalh@student.42porto.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 19:45:21 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 19:55:40 by anon             ###   ########.fr       */
+/*   Created: 2023/12/14 18:23:59 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 23:56:59 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_eval_prc(t_pa *pa, const char *str)
+int	ft_putstr(char *str)
 {
-	int	res;
 	int	i;
 
-	res = 0;
-	i = 0;
-	while (ft_strchr("0123456789", str[++i]))
-		res = (res * 10) + (ft_strchr("0123456789", str[i]) - "0123456789");
-	pa->prc = res;
+	i = -1;
+	while (str[++i])
+		write(1, &str[i], 1);
 	return (i);
 }

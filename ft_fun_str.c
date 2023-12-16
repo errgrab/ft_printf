@@ -6,17 +6,36 @@
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 00:00:00 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 01:28:55 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/16 21:22:30 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
+static int	ft_put(t_pa *pa, char *str)
+{
+	char	*neg_f;
+	int		len;
+	int		i;
+
+	i = 0;
+	neg_f = ft_strchr(pa->flg, '-');
+	if (pa->prc)
+		len = pa->prc;
+	else
+		len = ft_strlen(str);
+	if (neg_f)
+		write(1, str, len);
+	while (pa->wid > len - i)
+		i += write(1, " ", 1);
+	if (!neg_f)
+		write(1, str, len);
+	return (len + i);
+}
 
 void	ft_str(va_list args, t_pa *pa)
 {
-	int		len;
 	char	*str;
 
 	str = va_arg(args, char *);
@@ -25,20 +44,5 @@ void	ft_str(va_list args, t_pa *pa)
 		pa->len = write(1, "(null)", 6);
 		return ;
 	}
-	len = ft_strlen(str);
-	if (pa->prc)
-		len = pa->prc;
-	if (pa->wid > len)
-	{
-		pa->len = len;
-		if (ft_strchr(pa->flg, '-'))
-			write(1, str, pa->len);
-		while (pa->wid > len)
-			len += write(1, " ", 1);
-		if (!ft_strchr(pa->flg, '-'))
-			write(1, str, pa->len);
-	}
-	else
-		write(1, str, len);
-	pa->len = len;
+	pa->len = ft_put(pa, str);
 }

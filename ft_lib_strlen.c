@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_uns.c                                       :+:      :+:    :+:   */
+/*   ft_lib_strlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 00:00:05 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 00:09:50 by anon             ###   ########.fr       */
+/*   Created: 2023/12/13 17:02:53 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 23:57:14 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_uns(va_list args, t_pa *pa)
+int	ft_strlen(char *str)
 {
-	(void)args;
-	(void)pa;
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

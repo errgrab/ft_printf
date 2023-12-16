@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/15 20:05:55 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:28:13 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 # define UHEX " 0123456789ABCDEF"
 
 /* Types */
-typedef struct s_pa {			/* print args   */
+typedef struct s_pa /* print args   */
+{
 	char	f_chr;				/* format char  */
 	char	flg[FLAGS_LEN + 1];	/* flags        */
 	int		flg_cnt;			/* flags count  */

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 /* The evaluation of this follow this syntax rule from the man page:
  * %[flags][width][.precision]conversion

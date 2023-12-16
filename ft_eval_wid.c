@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib_nbrlen.c                                    :+:      :+:    :+:   */
+/*   ft_eval_wid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 16:56:55 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 23:56:51 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 19:42:00 by anon              #+#    #+#             */
+/*   Updated: 2023/12/15 19:55:55 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_nbrlen(ssize_t nbr, char *base)
+int	ft_eval_wid(t_pa *pa, const char *str)
 {
-	size_t	n;
-	int		len;
-	int		base_len;
+	int	res;
+	int	i;
 
-	len = 1;
-	n = nbr;
-	base_len = ft_strlen(base);
-	if (nbr < 0)
-	{
-		len++;
-		n = -nbr;
-	}
-	while (n)
-	{
-		n /= base_len;
-		len++;
-	}
-	return (len);
+	res = 0;
+	i = -1;
+	while (ft_strchr("0123456789", str[++i]))
+		res = (res * 10) + (ft_strchr("0123456789", str[i]) - "0123456789");
+	pa->wid = res;
+	return (i);
 }

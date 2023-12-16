@@ -6,7 +6,7 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2023/12/15 22:00:38 by anon             ###   ########.fr        #
+#    Updated: 2023/12/16 21:52:05 by anon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,27 +17,27 @@ SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
 ODIR	= objs
 OBJS    = $(addprefix $(ODIR)/,$(notdir $(SRCS:.c=.o)))
 CFLAGS	= -Wall -Wextra -Werror -I.
-TARGET	= libftprintf.a
+NAME	= libftprintf.a
 
 vpath %.c $(SDIR)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	ar rc $@ $^
+$(NAME): $(OBJS)
+	ar rc $(NAME) $^
 
 $(ODIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) -r $(ODIR)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(TARGET)
+bonus: $(NAME)
 
 .PHONY: all clean fclean re

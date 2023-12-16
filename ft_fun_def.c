@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib_putstr.c                                    :+:      :+:    :+:   */
+/*   ft_fun_def.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon <ecarvalh@student.42porto.com>        +#+  +:+       +#+        */
+/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 18:23:59 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 23:56:59 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 23:58:22 by anon              #+#    #+#             */
+/*   Updated: 2023/12/16 19:45:33 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char *str)
+void	ft_def(va_list args, t_pa *pa)
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
-	return (i);
+	(void)args;
+	write(1, "%", 1);
+	pa->len = 1;
 }

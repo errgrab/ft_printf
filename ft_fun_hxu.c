@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_eval_wid.c                                      :+:      :+:    :+:   */
+/*   ft_fun_hxu.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 19:42:00 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 19:55:55 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 23:59:51 by anon              #+#    #+#             */
+/*   Updated: 2023/12/16 21:30:57 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_eval_wid(t_pa *pa, const char *str)
+void	ft_hxu(va_list args, t_pa *pa)
 {
-	int	res;
-	int	i;
+	unsigned int	hex;
+	int				len;
 
-	res = 0;
-	i = -1;
-	while (ft_strchr("0123456789", str[++i]))
-		res = (res * 10) + (ft_strchr("0123456789", str[i]) - "0123456789");
-	pa->wid = res;
-	return (i);
+	hex = va_arg(args, unsigned int);
+	len = ft_based(hex, UHEX);
+	pa->len = len;
 }

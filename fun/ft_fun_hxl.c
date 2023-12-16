@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib_strlen.c                                    :+:      :+:    :+:   */
+/*   ft_fun_hxl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 17:02:53 by anon              #+#    #+#             */
-/*   Updated: 2023/12/15 23:57:14 by anon             ###   ########.fr       */
+/*   Created: 2023/12/15 23:59:31 by anon              #+#    #+#             */
+/*   Updated: 2023/12/16 00:10:43 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_strlen(char *str)
+void	ft_hxl(va_list args, t_pa *pa)
 {
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	(void)args;
+	(void)pa;
 }

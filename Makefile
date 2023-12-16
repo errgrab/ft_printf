@@ -6,25 +6,28 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2023/12/14 20:00:21 by anon             ###   ########.fr        #
+#    Updated: 2023/12/15 22:00:38 by anon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= clang
 RM		= rm -f
-SRCS	=	$(wildcard lib/ft_*.c) \
-			$(wildcard fun/ft_*.c) \
-			$(wildcard ft_*.c)
-OBJS	= $(SRCS:.c=.o)
+SDIR	= lib eval fun .
+SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
+ODIR	= objs
+OBJS    = $(addprefix $(ODIR)/,$(notdir $(SRCS:.c=.o)))
 CFLAGS	= -Wall -Wextra -Werror -I.
 TARGET	= libftprintf.a
+
+vpath %.c $(SDIR)
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	ar rc $(TARGET) $(OBJS)
+	ar rc $@ $^
 
-%.o:  %.c
+$(ODIR)/%.o: %.c
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,11 +6,11 @@
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:56:55 by anon              #+#    #+#             */
-/*   Updated: 2023/12/13 17:02:15 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/15 23:56:51 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_nbrlen(ssize_t nbr, char *base)
 {

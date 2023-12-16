@@ -6,11 +6,11 @@
 /*   By: anon <ecarvalh@student.42porto.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 18:23:59 by anon              #+#    #+#             */
-/*   Updated: 2023/12/14 18:38:14 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/15 23:56:59 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_putstr(char *str)
 {

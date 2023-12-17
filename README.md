@@ -37,7 +37,7 @@ Character | Descrition | Status
 **-** | Negative width | :construction:
 **0** | instead of spaces the padding of width is made of `0` | :construction:
 **#** | `0x` or `0X` for hex and upper case hex respectively | :construction:
-**<space>** | idk, it's just there... | :construction:
+**\<space>** | idk, it's just there... | :construction:
 **+** | Display a `+` for positive numbers | :construction:
 
 ### :construction: width

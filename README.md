@@ -12,15 +12,15 @@ The following is a roadmap for implementing the features of `ft_printf`. Each fe
 
 Character | Feature | Status
 ---|---|---
-**%c:** | Print a Single Character | :white_check_mark:
-**%s:** | Print a String | :white_check_mark:
-**%p:** | Print a Pointer in Hexadecimal | :white_check_mark:
-**%d:** | Print a Decimal Number | :white_check_mark:
-**%i:** | Print an Integer in Base 10 | :white_check_mark:
-**%u:** | Print an Unsigned Decimal Number | :white_check_mark:
-**%x:** | Print a Number in Hexadecimal (Lowercase | :white_check_mark:
-**%X:** | Print a Number in Hexadecimal (Uppercase | :white_check_mark:
-**%%:** | Print a Percent Sign | :white_check_mark:
+**%c** | Print a Single Character | :white_check_mark:
+**%s** | Print a String | :white_check_mark:
+**%p** | Print a Pointer in Hexadecimal | :white_check_mark:
+**%d** | Print a Decimal Number | :white_check_mark:
+**%i** | Print an Integer in Base 10 | :white_check_mark:
+**%u** | Print an Unsigned Decimal Number | :white_check_mark:
+**%x** | Print a Number in Hexadecimal (Lowercase | :white_check_mark:
+**%X** | Print a Number in Hexadecimal (Uppercase | :white_check_mark:
+**%%** | Print a Percent Sign | :white_check_mark:
 
 ### Bonus:
 

@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2023/12/16 20:28:13 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/18 17:35:56 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_nbrlen(ssize_t nbr, char *base);
 int		ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
 int		ft_putstr(char *str);
+int		ft_isnbr(int c);
 
 /* ConvFun */
 void	ft_chr(va_list args, t_pa *pa); /* char        */

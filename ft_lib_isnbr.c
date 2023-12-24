@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_eval_prc.c                                      :+:      :+:    :+:   */
+/*   ft_lib_isnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 19:45:21 by anon              #+#    #+#             */
-/*   Updated: 2023/12/18 16:53:02 by anon             ###   ########.fr       */
+/*   Created: 2023/12/18 16:45:04 by anon              #+#    #+#             */
+/*   Updated: 2023/12/18 17:36:48 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_eval_prc(t_pa *pa, const char *str)
+int	ft_isnbr(int c)
 {
-	int	res;
-	int	i;
+	unsigned char	chr;
 
-	res = 0;
-	i = 0;
-	while (ft_isnbr(str[++i]))
-		res = (res * 10) + (str[i]+ '0');
-	pa->prc = res;
-	return (i);
+	chr = c;
+	return (chr > '0' && chr < '9');
 }

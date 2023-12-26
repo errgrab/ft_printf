@@ -6,7 +6,7 @@
 /*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 00:00:00 by anon              #+#    #+#             */
-/*   Updated: 2023/12/18 17:38:21 by anon             ###   ########.fr       */
+/*   Updated: 2023/12/26 18:06:51 by anon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_put(t_pa *pa, char *str)
 		len = ft_strlen(str);
 	if (neg_f)
 		write(1, str, len);
-	while (pa->wid > len - i)
+	while (pa->wid > len + i)
 		i += write(1, " ", 1);
 	if (!neg_f)
 		write(1, str, len);

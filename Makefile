@@ -12,7 +12,7 @@
 
 CC		= clang
 RM		= rm -f
-SDIR	= .
+SDIR	= eval fun lib .
 SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
 ODIR	= objs
 OBJS    = $(addprefix $(ODIR)/,$(notdir $(SRCS:.c=.o)))

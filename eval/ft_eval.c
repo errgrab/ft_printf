@@ -26,18 +26,17 @@ int	ft_eval(va_list args, const char *fmt, int *j)
 	pa = (t_pa){0};
 	while (ft_strchr(FLAGS, fmt[++i + *j]))
 		ft_eval_flg(&pa, fmt[i + *j]);
-	if (ft_strchr("0123456789", fmt[i + *j]))
+	if (ft_isnbr(fmt[i + *j]))
 		i += ft_eval_wid(&pa, &fmt[i + *j]);
 	if (fmt[i + *j] == '.')
 		i += ft_eval_prc(&pa, &fmt[i + *j]);
 	if (ft_strchr(CONVS, fmt[i + *j]))
-		pa.f_chr = fmt[i + *j];
-	if (!pa.f_chr)
-		pa.len = write(1, "%", 1);
-	else
 	{
+		pa.f_chr = fmt[i + *j];
 		*j += i;
 		ft_eval_put(&pa, args);
 	}
+	if (!pa.f_chr)
+		pa.len = write(1, "%", 1);
 	return (pa.len);
 }

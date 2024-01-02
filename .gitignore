@@ -1,4 +1,5 @@
 *.o
 *.out
+libftprintf.a
 main.c
 test*

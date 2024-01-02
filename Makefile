@@ -6,7 +6,7 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2023/12/18 17:48:07 by anon             ###   ########.fr        #
+#    Updated: 2024/01/02 12:44:03 by anon             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RM		= rm -f
 SDIR	= eval fun lib .
 SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
 ODIR	= objs
-OBJS    = $(addprefix $(ODIR)/,$(notdir $(SRCS:.c=.o)))
+OBJS    = $(addprefix $(ODIR)/,$(SRCS:.c=.o))
 CFLAGS	= -Wall -Wextra -Werror -I. -g
 NAME	= libftprintf.a
 

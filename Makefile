@@ -6,7 +6,7 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2024/01/02 12:44:03 by anon             ###   ########.fr        #
+#    Updated: 2024/01/05 19:02:52 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ NAME	= libftprintf.a
 vpath %.c $(SDIR)
 
 all: $(NAME)
+
+main: all
+	$(CC) main.c $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $^

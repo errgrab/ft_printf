@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_str.c                                       :+:      :+:    :+:   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
+/*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 00:00:00 by anon              #+#    #+#             */
-/*   Updated: 2023/12/26 18:06:51 by anon             ###   ########.fr       */
+/*   Created: 2024/01/04 20:35:03 by ecarvalh          #+#    #+#             */
+/*   Updated: 2024/01/05 17:58:14 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int	ft_put(t_pa *pa, char *str)
+static int	ft_putstr(t_pa *pa, char *str)
 {
 	char	*neg_f;
 	int		len;
-	int		i;
+	int		spaces;
 
-	i = 0;
+	spaces = 0;
 	neg_f = ft_strchr(pa->flg, '-');
-	if (pa->prc)
-		len = pa->prc;
-	else
-		len = ft_strlen(str);
 	if (neg_f)
 		write(1, str, len);
-	while (pa->wid > len + i)
-		i += write(1, " ", 1);
+	while (pa->wid > len + spaces)
+		spaces += write(1, " ", 1);
 	if (!neg_f)
 		write(1, str, len);
-	return (len + i);
+	return (len + spaces);
 }
 
 void	ft_str(va_list args, t_pa *pa)
 {
 	char	*str;
+	int		len;
 
 	str = va_arg(args, char *);
+	len = ft_strlen(str);
+	if (ft_strchr(pa->flg, '.') && pa->prc < len)
+		len = pa->prc;
 	if (!str)
 	{
 		pa->len = write(1, "(null)", 6);
 		return ;
 	}
+	write(1, str, len);
 	pa->len = ft_put(pa, str);
 }

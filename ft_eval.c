@@ -6,7 +6,7 @@
 /*   By: anon <ecarvalh@student.42porto.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:12:08 by anon              #+#    #+#             */
-/*   Updated: 2024/01/06 16:34:55 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/06 21:43:10 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ int	ft_eval(va_list args, const char *fmt, int *j)
 
 	i = 0;
 	a = (t_arg){0};
-	if (ft_strchr(FLG, fmt[++i + *j]))
-	{
-		a.flg = (char *)&fmt[i + *j];
-		while (ft_strchr(FLG, fmt[i + *j]))
-			i++;
-	}
+	a.flg = (char *)&fmt[++i + *j];
+	while (ft_strchr(FLG, fmt[i + *j]))
+		i++;
 	if (ft_isnbr(fmt[i + *j]))
 		i += ft_eval_wid(&a, &fmt[i + *j]);
 	if (fmt[i + *j] == '.')
@@ -77,7 +74,7 @@ static int	ft_eval_prc(t_arg *a, const char *str)
 
 static void	ft_eval_put(t_arg *a, va_list args)
 {
-	void	(**f)(va_list, t_arg*);
+	void	(**f)(va_list, t_arg *);
 
 	f = (void (*[])(va_list, t_arg *)){
 		ft_chr, ft_str, ft_ptr, ft_dig, ft_dig, ft_uns, ft_hxl, ft_hxu, ft_def

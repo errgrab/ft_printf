@@ -6,7 +6,7 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2024/01/06 15:42:01 by ecarvalh         ###   ########.fr        #
+#    Updated: 2024/01/06 21:59:36 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ vpath %.c $(SDIR)
 all: $(NAME)
 
 main: all
-	$(CC) main.c $(NAME)
+	$(CC) $(CFLAGS) main.c $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $^
@@ -41,6 +41,6 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(NAME)
+# bonus: $(NAME)
 
 .PHONY: all clean fclean re

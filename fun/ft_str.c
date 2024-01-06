@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 20:35:03 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/06 14:49:25 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/06 21:59:00 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_str(va_list args, t_arg *a)
 	int		len;
 
 	str = va_arg(args, char *);
-	len = ft_strlen(str);
-	if (ft_strchr(a->flg, '.') && a->prc < len)
-		len = a->prc;
 	if (!str)
 	{
 		a->len = write(1, "(null)", 6);
 		return ;
 	}
+	len = ft_strlen(str);
+	if (ft_strchr(a->flg, '.') && a->prc < len)
+		len = a->prc;
 	a->len = write(1, str, len);
 }

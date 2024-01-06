@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_def.c                                       :+:      :+:    :+:   */
+/*   ft_def.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
+/*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 23:58:22 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 19:45:33 by anon             ###   ########.fr       */
+/*   Updated: 2024/01/06 14:36:04 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_def(va_list args, t_pa *pa)
+void	ft_def(va_list args, t_arg *a)
 {
 	(void)args;
-	write(1, "%", 1);
-	pa->len = 1;
+	a->len = write(1, "%", 1);
 }

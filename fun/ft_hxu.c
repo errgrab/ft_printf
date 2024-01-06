@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_hxu.c                                       :+:      :+:    :+:   */
+/*   ft_hxu.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
+/*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 23:59:51 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 21:30:57 by anon             ###   ########.fr       */
+/*   Updated: 2024/01/06 14:39:41 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_hxu(va_list args, t_pa *pa)
+void	ft_hxu(va_list args, t_arg *a)
 {
 	unsigned int	hex;
 	int				len;
 
 	hex = va_arg(args, unsigned int);
-	len = ft_based(hex, UHEX);
-	pa->len = len;
+	len = ft_based(hex, UHX);
+	a->len = len;
 }

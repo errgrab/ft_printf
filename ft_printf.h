@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/06 14:28:21 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:32:49 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,14 @@
 # define UHX " 0123456789ABCDEF"
 
 /* Types */
-typedef struct s_arg t_arg;
-struct s_pa
+typedef struct s_arg	t_arg;
+struct s_arg
 {
 	char	*cnv;
 	char	*flg;
 	int		wid;
 	int		prc;
 	int		len;
-	int		(*f)();
 };
 
 /* <'-' > */
@@ -43,7 +42,6 @@ int		ft_printf(const char *format, ...);
 
 /* BASED */
 int		ft_based(size_t n, char *base);
-
 
 /* ConvFun */
 void	ft_chr(va_list args, t_arg *a); /* char        */

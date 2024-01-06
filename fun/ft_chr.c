@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fun_chr.c                                       :+:      :+:    :+:   */
+/*   ft_chr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon </var/spool/mail/anon>                +#+  +:+       +#+        */
+/*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 23:57:58 by anon              #+#    #+#             */
-/*   Updated: 2023/12/16 19:40:25 by anon             ###   ########.fr       */
+/*   Updated: 2024/01/06 14:47:42 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_chr(va_list args, t_pa *pa)
+void	ft_chr(va_list args, t_arg *a)
 {
 	int		len;
 	char	c;
 
 	c = va_arg(args, int);
 	len = 1;
-	if (pa->wid > len)
+	if (a->wid > len)
 	{
-		if (ft_strchr(pa->flg, '-'))
+		if (ft_strchr(a->flg, '-'))
 			write(1, &c, 1);
-		while (pa->wid > len)
+		while (a->wid > len)
 			len += write(1, " ", 1);
-		if (!ft_strchr(pa->flg, '-'))
+		if (!ft_strchr(a->flg, '-'))
 			write(1, &c, 1);
 	}
 	else
 		write(1, &c, 1);
-	pa->len = len;
+	a->len = len;
 }

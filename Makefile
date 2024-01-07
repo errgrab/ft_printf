@@ -6,13 +6,13 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2024/01/06 21:59:36 by ecarvalh         ###   ########.fr        #
+#    Updated: 2024/01/07 13:36:53 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= clang
 RM		= rm -f
-SDIR	= eval fun ftlib .
+SDIR	= eval fun .
 SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
 ODIR	= objs
 OBJS    = $(addprefix $(ODIR)/,$(SRCS:.c=.o))
@@ -41,6 +41,6 @@ fclean: clean
 
 re: fclean all
 
-# bonus: $(NAME)
+bonus: $(NAME)
 
 .PHONY: all clean fclean re

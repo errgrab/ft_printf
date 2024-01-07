@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/06 16:32:49 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/07 13:39:19 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,14 @@ struct s_arg
 /* <'-' > */
 int		ft_printf(const char *format, ...);
 
-/* BASED */
-int		ft_based(size_t n, char *base);
+/* Lib */
+int		ft_based(size_t n, char *base); /* BASED */
+char	*ft_strchr(char *str, int c);
+int		ft_isnbr(int c);
+int		ft_strlen(char *str);
+
+/* Eval */
+int		ft_eval(va_list args, const char *fmt, int *j);
 
 /* ConvFun */
 void	ft_chr(va_list args, t_arg *a); /* char        */
@@ -52,14 +58,5 @@ void	ft_uns(va_list args, t_arg *a); /* unsigned    */
 void	ft_hxl(va_list args, t_arg *a); /* hex lower   */
 void	ft_hxu(va_list args, t_arg *a); /* hex upper   */
 void	ft_def(va_list args, t_arg *a); /* default (%) */
-
-/* Eval */
-int		ft_eval(va_list args, const char *fmt, int *j);
-
-/* Lib */
-int		ft_nbrlen(ssize_t nbr, int base_len);
-int		ft_strlen(char *str);
-char	*ft_strchr(char *str, int c);
-int		ft_isnbr(int c);
 
 #endif

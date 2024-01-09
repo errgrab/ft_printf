@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:25:23 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/09 15:09:04 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:32:21 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,18 @@ int	ft_nbrlen(ssize_t nbr, int base_len)
 	size_t	n;
 	int		len;
 
-	len = 1;
+	len = 0;
 	n = nbr;
-	if (nbr < 0)
+	if (nbr == 0)
+		return (1);
+	if (base_len < 0)
 	{
-		len++;
-		n = -nbr;
+		if (nbr < 0)
+		{
+			len++;
+			n = -nbr;
+		}
+		base_len = -base_len;
 	}
 	while (n)
 	{

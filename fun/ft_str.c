@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 20:35:03 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/09 14:30:33 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:36:19 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	ft_wid(char *str, t_arg *a)
 		if (ft_strchr(a->flg, '.') && a->prc < str_len)
 			str_len = a->prc;
 	}
-	while (a->wid > 0 && a->wid > str_len + len)
+	while (a->wid > str_len + len)
 		len += write(1, " ", 1);
 	return (len);
 }

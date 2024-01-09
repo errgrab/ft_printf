@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/09 15:12:37 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:14:40 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 /* Conversions */
 # define CNV "cspdiuxX%"
 # define FLG "-0# +"
+# define FLL 6
 
 /* Bases */
 # define SDE "-0123456789"
@@ -30,8 +31,9 @@
 typedef struct s_arg	t_arg;
 struct s_arg
 {
-	char	*cnv;
-	char	*flg;
+	char	cnv;
+	char	flg[FLL + 1];
+	int		flp;
 	int		wid;
 	int		prc;
 	int		len;

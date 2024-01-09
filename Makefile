@@ -6,13 +6,13 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2024/01/09 14:39:50 by ecarvalh         ###   ########.fr        #
+#    Updated: 2024/01/09 15:13:42 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= clang
 RM		= rm -f
-SDIR	= eval fun .
+SDIR	= fun .
 SRCS	= $(foreach dir,$(SDIR),$(wildcard $(dir)/ft_*.c))
 ODIR	= objs
 OBJS    = $(addprefix $(ODIR)/,$(SRCS:.c=.o))

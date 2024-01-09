@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/07 13:39:19 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:12:37 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_based(size_t n, char *base); /* BASED */
 char	*ft_strchr(char *str, int c);
 int		ft_isnbr(int c);
 int		ft_strlen(char *str);
+int		ft_nbrlen(ssize_t nbr, int base_len);
 
 /* Eval */
 int		ft_eval(va_list args, const char *fmt, int *j);

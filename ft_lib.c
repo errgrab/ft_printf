@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:25:23 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/07 13:36:43 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:09:04 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,25 @@ int	ft_strlen(char *str)
 	len = 0;
 	while (str[len])
 		len++;
+	return (len);
+}
+
+int	ft_nbrlen(ssize_t nbr, int base_len)
+{
+	size_t	n;
+	int		len;
+
+	len = 1;
+	n = nbr;
+	if (nbr < 0)
+	{
+		len++;
+		n = -nbr;
+	}
+	while (n)
+	{
+		n /= base_len;
+		len++;
+	}
 	return (len);
 }

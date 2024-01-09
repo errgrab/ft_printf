@@ -6,7 +6,7 @@
 #    By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 20:20:55 by ecarvalh          #+#    #+#              #
-#    Updated: 2024/01/07 13:36:53 by ecarvalh         ###   ########.fr        #
+#    Updated: 2024/01/09 14:39:50 by ecarvalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ vpath %.c $(SDIR)
 
 all: $(NAME)
 
-main: all
-	$(CC) $(CFLAGS) main.c $(NAME)
+test: all
+	$(CC) $(CFLAGS) main.c $(NAME) && ./a.out
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $^

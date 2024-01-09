@@ -6,7 +6,7 @@
 /*   By: anon <ecarvalh@student.42porto.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:12:08 by anon              #+#    #+#             */
-/*   Updated: 2024/01/07 13:22:32 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:12:16 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,9 @@ static int	ft_eval_prc(t_arg *a, const char *str)
 
 	i = 0;
 	res = 0;
-	if(str[i] == '.')
-	{
+	if (str[i] == '.')
 		while (ft_isnbr(str[++i]))
 			res = (res * 10) + (str[i] - '0');
-	}
 	a->prc = res;
 	return (i);
 }

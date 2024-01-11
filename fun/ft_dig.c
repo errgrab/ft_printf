@@ -6,7 +6,7 @@
 /*   By: ecaravlh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 23:58:29 by anon              #+#    #+#             */
-/*   Updated: 2024/01/11 20:07:31 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:33:12 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_put(int num, t_arg *a)
 	else if (ft_strchr(a->flg, ' '))
 		len += write(1, " ", 1);
 	len += ft_prc(num, a);
-	if (!(ft_strchr(a->flg, '.') && a->prc == 0))
+	if (!(ft_strchr(a->flg, '.') && a->prc == 0 && num == 0))
 		len += ft_based(n, DEC);
 	return (len);
 }

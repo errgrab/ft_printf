@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 00:00:05 by anon              #+#    #+#             */
-/*   Updated: 2024/01/10 17:30:05 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:08:48 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ static int	ft_put(unsigned int num, t_arg *a)
 	if (ft_strchr(a->flg, '.'))
 		while (a->prc > num_len + zeros)
 			zeros += write(1, "0", 1);
-	len += ft_based(num, DEC);
+	else if (ft_strchr(a->flg, '0') && !ft_strchr(a->flg, '-'))
+		while (a->wid > num_len + zeros)
+			zeros += write(1, "0", 1);
+	if (!(ft_strchr(a->flg, '.') && a->prc == 0))
+		len += ft_based(num, DEC);
 	return (len + zeros);
 }
 
@@ -57,7 +61,11 @@ static int	ft_wid(unsigned int num, t_arg *a)
 	num_len = ft_nbrlen(num, 10);
 	if (ft_strchr(a->flg, '.') && num_len < a->prc)
 		num_len = a->prc;
-	while (a->wid > num_len + len)
-		len += write(1, " ", 1);
+	if (ft_strchr(a->flg, '.') && num == 0 && a->prc == 0)
+		num_len = 0;
+	if (!ft_strchr(a->flg, '0')
+		|| ft_strchr(a->flg, '-') || ft_strchr(a->flg, '.'))
+		while (a->wid > num_len + len)
+			len += write(1, " ", 1);
 	return (len);
 }

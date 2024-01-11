@@ -6,7 +6,7 @@
 /*   By: ecarvalh <ecarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:12:09 by ecarvalh          #+#    #+#             */
-/*   Updated: 2024/01/09 19:14:40 by ecarvalh         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:08:25 by ecarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 # define FLL 6
 
 /* Bases */
-# define SDE "-0123456789"
-# define UDE " 0123456789"
-# define LHX " 0123456789abcdef"
-# define UHX " 0123456789ABCDEF"
+# define DEC "0123456789"
+# define LHX "0123456789abcdef"
+# define UHX "0123456789ABCDEF"
 
 /* Types */
 typedef struct s_arg	t_arg;
@@ -47,7 +46,7 @@ int		ft_based(size_t n, char *base); /* BASED */
 char	*ft_strchr(char *str, int c);
 int		ft_isnbr(int c);
 int		ft_strlen(char *str);
-int		ft_nbrlen(ssize_t nbr, int base_len);
+int		ft_nbrlen(size_t nbr, int base_len);
 
 /* Eval */
 int		ft_eval(va_list args, const char *fmt, int *j);

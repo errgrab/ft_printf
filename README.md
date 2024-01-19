@@ -34,16 +34,16 @@ the flag is one of the follows:
 
 Character | Descrition | Status
 ---|---|---
-**-** | Negative width | :construction:
-**0** | instead of spaces the padding of width is made of `0` | :construction:
-**#** | `0x` or `0X` for hex and upper case hex respectively | :construction:
-**\<space>** | idk, it's just there... | :construction:
-**+** | Display a `+` for positive numbers | :construction:
+**-** | Negative width | :white_check_mark:
+**0** | instead of spaces the padding of width is made of `0` | :white_check_mark:
+**#** | `0x` or `0X` for hex and upper case hex respectively | :white_check_mark:
+**\<space>** | Display a ` ` before positive numbers | :white_check_mark:
+**+** | Display a `+` for positive numbers | :white_check_mark:
 
-### :construction: width
+### :white_check_mark: width
 
 Width is a number that dictates minimum width to be printed, it should work in every format specifier except `%` for some reason.
 
-### :construction: precision
+### :white_check_mark: precision
 
 I don't know very well, it looks like it should limit the printing of the string somehow, and i didn't search for other specifiers.
